@@ -1,0 +1,57 @@
+새로운 계정만들기
+기본적으로 mysql은 로컬에서만 접근 가능하다.
+로컬에서만 가능하다는 말은 디비서버(MYSQL84)와
+디비클라이언트(mysql, workbench, dbeavor, sqlgate,heidsql..)
+동일 컴퓨터에 존재할때 접근 가능함을 말한다.
+클라이언트가 다른 컴퓨터에 있을떄 접근간으한 계쩡을 별도로 만들어줘야 한다
+실무에서는 보통 phpmyadmin 이라는 웹사이트를 설치하여 이 사이트를 통해
+접근을 한다.
+로컬접근 계정만들기
+create user '계정명'@'localhost' identfied by'패스워드';
+예시)
+create user 'user01'@'localhost'identified by '1234';
+root 계정이 생성된 사용자계정에게 db에 접근할 권한을 부여해야
+특정 db에 접근할 권한이 생긴다
+
+grant all privileges on mydb.* to user01@localhost;
+--테이블의 구조를 확인하는 명령어
+desc 테이블명;
+desc emp;
+desc dept;
+
+열을 필드라고 부른다
+Type 데이터 타입이 존재한다. small int int bigint ,,,,
+
+char - 고정길이 문자열, 1000byte 이내
+        gender char(10) gender = y
+        y--------- 10개의 메모리를 다 ㅇ차지
+        where gender = 'y'
+        where gender = 'Y' 다른 dbms 마다 다른데 데이터에서
+        한해서 대소문자 구분을 하는데 mysql은 못한다.
+        오라클 경우 where gender = y
+        또는 where trip(gender)='y'
+        데이터의 길이가 정해져 있을때 사번, 학번, 성별, 연도,
+        주민번호나 우편번호등 그외에는 거의 varchar를사용한다.
+varchar - (바차) variant char의 약자
+    가변길이 문자열, 용량을 지정해도 실제 데이터만큼만 사용을 한다
+    varchar(100) 'y' 가들어가면 실제 데이터 길이 1만 차지한다.
+    2000byte까지 앞부분에 데이터 길이를 별도로 저장한다.
+    그래서 상황에맞게 , 사용자 아이디, 게시글 타이틀
+
+text, long text - 2G 게시판 게시글
+NULL - 널 허용여부 
+key - pri - primary key: 중복불가, null불가 조건을 만족해야한다.
+Default - 특별한 값을 입력하지 않았을때 기본값으로 저장된다.
+
+desc emp;
+
+-- DCL,DML,DDL 
+DCL L Data Control language, grant(권한주기) revoke(권한뺏기)
+DML : Data manipultion language 조작어
+    insert, delete, update, select
+DDl : Data Definition language
+     정의 create alter drop truncate
+-- 조회명령어인 select 명령어 사용법을 배우자
+
+
+
