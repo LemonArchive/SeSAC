@@ -1,0 +1,33 @@
+w3schools 테이블 구조
+orders - 주문 아이디, 고객아이디, 선적아이디, 판매자아이디
+ordersdetails - ordetailId,proudctid,quantity 수량, 
+                orderid(foreign key)
+customers - 고객정보, customerid (primary key)
+empoloyees - employeeid(pri)
+products - proudctid(pri)
+shippers - shippedid(pri)
+suppliers - product에 묶임
+categories - product에 묶임
+
+inner join - 교집합
+left outer join - 왼쪽집합이 다 출력
+right outer join - 오른쪽 집합이 다 출력
+cross join - 카테시안곱, 조인조건이 없을때 n by m
+
+-- union, union all 단순 합치기, 데이터 덧붙이기
+-- union의 경우에는 중복 배제, union all 은 중복 배제하지 않는다.
+
+select column1, column2 from table1
+union all
+select column1, column2 from table2
+필드개수와 타입만 맞으면 된다.
+행 => 열로 바꾸야 할때
+1
+2
+3
+4
+    1   2   3   4
+포털, 국가 기관 검색어로 검색하면 각테이블로부터 검색한 내용을 전부
+union 해서 갖고 온다.
+
+    
