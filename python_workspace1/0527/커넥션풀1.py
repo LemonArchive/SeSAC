@@ -38,3 +38,4 @@ conn.execute(sql,[{"empno":10000,
                    "sal" : 8000}])
 conn.commit()
 conn.close()
+
