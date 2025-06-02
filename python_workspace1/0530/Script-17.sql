@@ -43,3 +43,7 @@ select orderid, row_number()
 				over(order by orderid desc)	rnum
 from orderdetails
 limit 11,10;
+
+select quantity, sum(quantity) over(
+rows between 1 preceding and 1 following) as q
+from orderdetails;
